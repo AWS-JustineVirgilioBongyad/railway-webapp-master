@@ -1,6 +1,6 @@
-const Beacon = require("../models/beacon");
+import Beacon from "../models/beacon.js";
 
-const getBeacons = async (req, res) => {
+export const getBeacons = async (req, res) => {
   try {
     const beacons = await Beacon.findAll();
     res.json(beacons);
@@ -9,7 +9,7 @@ const getBeacons = async (req, res) => {
   }
 };
 
-const addBeacon = async (req, res) => {
+export const addBeacon = async (req, res) => {
   try {
     const {
       beacon_uuid,
@@ -43,7 +43,7 @@ const addBeacon = async (req, res) => {
   }
 };
 
-const updateBeacon = async (req, res) => {
+export const updateBeacon = async (req, res) => {
   try {
     const { beacon_id } = req.params;
     const {
@@ -84,7 +84,7 @@ const updateBeacon = async (req, res) => {
   }
 };
 
-const deleteBeacon = async (req, res) => {
+export const deleteBeacon = async (req, res) => {
   try {
     const { beacon_id } = req.params;
     const beacon = await Beacon.findByPk(beacon_id);
@@ -99,5 +99,3 @@ const deleteBeacon = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-
-module.exports = { getBeacons, addBeacon, updateBeacon, deleteBeacon };

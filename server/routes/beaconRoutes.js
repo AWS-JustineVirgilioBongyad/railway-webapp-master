@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 import {
   getBeacons,
   addBeacon,
@@ -13,4 +13,4 @@ router.post("/", addBeacon);
 router.put("/:beacon_id", updateBeacon);
 router.delete("/:beacon_id", deleteBeacon);
 
-module.exports = router;
+export default router;

@@ -1,17 +1,15 @@
 <template>
-  <ModalOverlay :visible="visible" @close="closeModal">
+  <div>
     <h2>Edit Beacon</h2>
     <form @submit.prevent="editBeacon">
       <input v-model="updatedName" placeholder="Name" required />
       <input v-model="updatedLocation" placeholder="Location" required />
       <button type="submit">Update</button>
     </form>
-  </ModalOverlay>
+  </div>
 </template>
 
 <script setup>
-import ModalOverlay from "./ModalOverlay.vue";
-
 const props = defineProps({
   visible: Boolean,
   beacon: Object,

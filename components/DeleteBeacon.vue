@@ -1,15 +1,13 @@
 <template>
-  <ModalOverlay :visible="visible" @close="closeModal">
+  <div>
     <h2>Delete Beacon</h2>
     <p>Are you sure you want to delete "{{ beacon.name }}"?</p>
     <button @click="confirmDelete">Yes</button>
     <button @click="closeModal">No</button>
-  </ModalOverlay>
+  </div>
 </template>
 
 <script setup>
-import ModalOverlay from "./ModalOverlay.vue";
-
 const props = defineProps({
   visible: Boolean,
   beacon: Object,

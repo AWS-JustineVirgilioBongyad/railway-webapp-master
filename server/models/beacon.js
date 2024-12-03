@@ -1,5 +1,5 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+import { DataTypes } from "sequelize";
+import sequelize from "../config/db.js";
 
 const Beacon = sequelize.define(
   "Beacon",
@@ -26,4 +26,4 @@ const Beacon = sequelize.define(
   { tableName: "beacon", timestamps: false }
 );
 
-module.exports = Beacon;
+export default Beacon;
