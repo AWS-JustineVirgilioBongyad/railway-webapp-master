@@ -11,8 +11,12 @@
     "start": "nuxt start"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.6",
     "express": "^4.21.1",
+    "mysql2": "^3.11.5",
     "nuxt": "^3.14.1592",
+    "sequelize": "^6.37.5",
     "vue": "latest",
     "vue-router": "latest"
   }
