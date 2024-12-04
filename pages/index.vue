@@ -7,9 +7,16 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import NavigationBar from "~/components/NavigationBar.vue";
 import BeaconTable from "~/components/BeaconTable.vue";
+
+export default {
+  components: {
+    NavigationBar,
+    BeaconTable,
+  },
+};
 </script>
 
 <style>

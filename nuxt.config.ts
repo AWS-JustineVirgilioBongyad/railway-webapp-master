@@ -1,15 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default {
-  router: {
-    extendedRoutes(routes, resolve) {
-      routes.splice(0);
-      routes.push({
-        name: "Home",
-        path: "/",
-        component: resolve(__dirname, "pages/index.vue"),
-      });
+export default defineNuxtConfig({
+  serverMiddleware: [{ path: "/api", handler: "~/server/index.js" }],
+
+  runtimeConfig: {
+    public: {
+      // Backend API base URL
+      apiBase: "/api/beacons",
     },
   },
 
+  // Ensure compatibility with Nuxt 3
   compatibilityDate: "2024-12-03",
-};
+});

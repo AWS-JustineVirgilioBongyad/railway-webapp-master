@@ -14,4 +14,13 @@ const sequelize = new Sequelize(
   }
 );
 
+(async () => {
+  try {
+    await sequelize.authenticate();
+    console.log("Connected to the database.");
+  } catch (err) {
+    console.error("Unable to connecto to the database:", err);
+  }
+})();
+
 export default sequelize;

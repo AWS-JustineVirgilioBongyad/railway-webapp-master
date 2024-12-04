@@ -55,33 +55,51 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import { ref } from "vue";
 import AddBeacon from "~/components/AddBeacon.vue";
 
-const modalVisible = ref(false);
-const currentAction = ref(null);
-
-const beacons = ref([]);
-
-const openModal = (action) => {
-  currentAction.value = action;
-  modalVisible.value = true;
-};
-
-const closeModal = () => {
-  modalVisible.value = false;
-  currentAction.value = null;
-};
-
-const handleAdd = (newBeacon) => {
-  beacons.value.push({
-    ...newBeacon,
-    beacon_id: Date.now(),
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  });
-  closeModal();
+export default {
+  components: {
+    AddBeacon,
+  },
+  data() {
+    return {
+      modalVisible: false,
+      currentAction: null,
+      beacons: [],
+    };
+  },
+  methods: {
+    async fetchBeacons() {
+      try {
+        const response = await $fetch("/api/beacons");
+        this.beacons = response.data;
+      } catch (err) {
+        console.error("Error fetching response:", err);
+      }
+    },
+    openModal(action) {
+      this.currentAction = action;
+      this.modalVisible = true;
+    },
+    closeModal() {
+      this.modalVisible = false;
+      this.currentAction = null;
+    },
+    handleAdd(newBeacon) {
+      this.beacons.push({
+        ...newBeacon,
+        beacon_id: Date.now(),
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      });
+      this.closeModal();
+    },
+  },
+  mounted() {
+    this.fetchBeacons();
+  },
 };
 </script>
 
