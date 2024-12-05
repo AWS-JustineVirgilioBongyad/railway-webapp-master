@@ -8,9 +8,10 @@ import {
 
 const router = express.Router();
 
-router.get("/api/beacons", getBeacons);
-router.post("/api/beacons", addBeacon);
-router.put("/api/beacons/:beacon_id", updateBeacon);
-router.delete("/api/beacons/:beacon_id", deleteBeacon);
+// Define routes
+router.get("/", getBeacons);
+router.post("/", addBeacon);
+router.put("/:beacon_id", updateBeacon);
+router.delete("/:beacon_id", deleteBeacon);
 
 export default router;

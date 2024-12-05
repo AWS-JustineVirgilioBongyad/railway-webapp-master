@@ -1,7 +1,7 @@
 <template>
   <div class="modal-overlay">
     <div class="modal-container">
-      <h2 class="modal-title">Add New Beacon</h2>
+      <h2 class="modal-title">Add Beacon Info</h2>
       <form @submit.prevent="handleSubmit">
         <div class="form-group">
           <label for="uuid">UUID</label>
@@ -114,7 +114,7 @@ export default {
 
 .modal-container {
   background: linear-gradient(135deg, #ffffff, #f7f7f7);
-  width: 400px;
+  width: 40vw;
   padding: 20px 25px;
   border-radius: 12px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
@@ -137,6 +137,7 @@ export default {
   font-size: 1.5rem;
   color: #333333;
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .form-group {

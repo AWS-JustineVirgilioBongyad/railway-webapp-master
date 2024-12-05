@@ -1,6 +1,7 @@
 import Beacon from "../models/beacon.js";
 
 export const getBeacons = async (req, res) => {
+  console.log("GET /beacons called");
   try {
     const beacons = await Beacon.findAll();
     console.log;

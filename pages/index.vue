@@ -28,6 +28,7 @@ body {
   height: 100%;
   overflow: hidden; /* Prevent scrolling */
   background-color: #252525;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .main-page {

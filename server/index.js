@@ -1,16 +1,13 @@
 import express from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
-import beaconRoutes from "./routes/beaconRoutes.js";
+import beaconsRoutes from "./api/beacons.js";
 
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use("/api/beacons", beaconsRoutes);
 
 // Routes
-app.use("/beacons", beaconRoutes);
-
-// Export for Nuxt middleware
-export default app;
+app.listen(3000, () => {
+  console.log("Server is running on http://localhost:3000");
+});
